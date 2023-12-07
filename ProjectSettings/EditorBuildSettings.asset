@@ -6,15 +6,21 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/_Mata/Pac-Man.unity
+    guid: 74e033789965f2344b5ab917d0639dd6
+  - enabled: 0
     path: Assets/Scenes/HomeScreen.unity
     guid: 1ad530a200e48ef4ba61db9f9b0544fd
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestArMars.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/TestArEarth.unity
     guid: 8e9dd797787b3d44999b8f6ee39aa268
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6617194f1984f254c8a834911da96f97, type: 2}
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 926d4743b9801844d8959304ec87b00d, type: 2}
+    UnityEditor.XR.ARKit.ARKitSettings: {fileID: 11400000, guid: 993a30987c779c34c84dcc29ac5ee54e, type: 2}
+    com.unity.xr.magicleap.magic_leap_settings: {fileID: 11400000, guid: f9880218205f0114b8a099d6fba394a6, type: 2}
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d369ef601eb438047b5163cffd844c10, type: 2}
+    com.unity.xr.openxr.settings4: {fileID: 11400000, guid: 9372bdc5c4daffd45916a45b7030d9e3, type: 2}
