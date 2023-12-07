@@ -7,44 +7,90 @@ using UnityEngine.XR.ARSubsystems;
 public class PlayerController : MonoBehaviour
 {
     public float moveSpeed = 0.1f;
+    public bool wantsToUp, canUp, wantsToDown, canDown, wantsToRight, canRight, wantsToLeft, canLeft, stopMovement;
+    public GameObject mesh;
+    public Vector3 currentDirection = Vector3.zero;
+
+    private void Start()
+    {
+        canUp = true;
+        canDown = true;
+        canLeft = true;
+        canRight = true;
+    }
 
     void Update()
     {
-        // Obtener la dirección de movimiento desde los botones UI
-        float horizontal = Input.GetAxis("Horizontal");
-        float vertical = Input.GetAxis("Vertical");
+        if(wantsToUp && canUp)
+        {
+            wantsToUp = false;
+            currentDirection = Vector3.up;
+            mesh.transform.localScale = new Vector3(1, 1, 1);
+            mesh.transform.rotation = Quaternion.Euler(0, 0, -90);
 
-        // Calcular la dirección en el espacio del mundo
-        Vector3 direction = new Vector3(horizontal, 0f, vertical).normalized;
+        }
 
-        // Rotar la dirección según la orientación de la cámara
-        direction = Camera.main.transform.TransformDirection(direction);
+        if (wantsToDown && canDown)
+        {
+            wantsToDown = false;
+            currentDirection = Vector3.down;
+            mesh.transform.localScale = new Vector3(-1, 1, 1);
+            mesh.transform.rotation = Quaternion.Euler(0, 0, -90);
+        }
 
-        // Mover el personaje en la dirección calculada
-        transform.Translate(direction * moveSpeed * Time.deltaTime, Space.World);
+        if (wantsToRight && canRight)
+        {
+            wantsToRight = false;
+            currentDirection = Vector3.right;
+            mesh.transform.rotation = Quaternion.Euler(0, 0, 0);
+            mesh.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if (wantsToLeft && canLeft)
+        {
+            wantsToLeft = false;
+            currentDirection = Vector3.left;
+            mesh.transform.rotation = Quaternion.Euler(0, 0, 0);
+            mesh.transform.localScale = new Vector3(1, 1, 1);
+        }
+
+        Move(currentDirection);
     }
 
     public void MoveUp()
     {
-        // Mover hacia arriba en el eje Z
-        transform.Translate(Vector3.forward * moveSpeed);
+        wantsToUp = true;
+        wantsToDown = false;
+        wantsToRight = false;
+        wantsToLeft = false;
     }
 
     public void MoveDown()
     {
-        // Mover hacia abajo en el eje Z
-        transform.Translate(Vector3.back * moveSpeed);
+        wantsToUp = false;
+        wantsToDown = true;
+        wantsToRight = false;
+        wantsToLeft = false;
     }
 
     public void MoveRight()
     {
-        // Mover hacia la derecha en el eje X
-        transform.Translate(Vector3.right * moveSpeed);
+        wantsToUp = false;
+        wantsToDown = false;
+        wantsToRight = true;
+        wantsToLeft = false;
     }
 
     public void MoveLeft()
     {
-        // Mover hacia la izquierda en el eje X
-        transform.Translate(Vector3.left * moveSpeed);
+        wantsToUp = false;
+        wantsToDown = false;
+        wantsToRight = false;
+        wantsToLeft = true;
+    }
+
+    public void Move(Vector3 direction)
+    {
+        transform.Translate(moveSpeed * direction * Time.deltaTime);
     }
 }
