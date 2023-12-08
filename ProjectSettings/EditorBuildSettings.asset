@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 0
-    path: Assets/_Mata/Pac-Man.unity
+    path: Assets/_developers/_Mata/Pac-Man.unity
     guid: 74e033789965f2344b5ab917d0639dd6
   - enabled: 0
     path: Assets/Scenes/HomeScreen.unity
@@ -18,7 +18,10 @@ EditorBuildSettings:
     path: Assets/Scenes/TestArEarth.unity
     guid: 8e9dd797787b3d44999b8f6ee39aa268
   - enabled: 1
-    path: Assets/_Mata/Test.unity
+    path: Assets/_developers/_Mata/ConnectionScene.unity
+    guid: 0b492a3b9ab78c1478327966a3d8e05f
+  - enabled: 1
+    path: Assets/_developers/_Mata/Test.unity
     guid: bf3d2de8a9fcf2249b0e21d415ebadc6
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: 6617194f1984f254c8a834911da96f97, type: 2}
